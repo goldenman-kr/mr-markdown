@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https: http: mdeditor-resource:; font-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Mr. Markdown</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+<div id="app">
+  <header class="toolbar" aria-label="문서 서식">
+    <div class="brand" aria-label="Mr. Markdown"><img src="./icon.svg" alt=""><span>Mr.<span class="brand-light"> Markdown</span></span></div>
+    <div class="toolbar-separator"></div>
+    <div class="format-actions" role="toolbar" aria-label="마크다운 서식">
+      <button data-format="bold" title="굵게 (⌘B)" aria-label="굵게"><strong>B</strong></button>
+      <button data-format="italic" title="기울임 (⌘I)" aria-label="기울임"><i>I</i></button>
+      <button data-format="strike" title="취소선" aria-label="취소선"><s>S</s></button>
+      <span class="toolbar-separator"></span>
+      <button data-format="h1" title="제목 1" aria-label="제목 1">H₁</button>
+      <button data-format="h2" title="제목 2" aria-label="제목 2">H₂</button>
+      <button data-format="quote" title="인용" aria-label="인용">❞</button>
+      <span class="toolbar-separator"></span>
+      <button data-format="bullet" title="글머리 기호" aria-label="글머리 기호">☷</button>
+      <button data-format="ordered" title="번호 목록" aria-label="번호 목록">≡<small>1</small></button>
+      <button data-format="task" title="체크리스트" aria-label="체크리스트">☑</button>
+      <span class="toolbar-separator"></span>
+      <button data-format="code" title="인라인 코드" aria-label="인라인 코드">&lt; &gt;</button>
+      <button data-format="codeblock" title="코드 블록" aria-label="코드 블록">{ }</button>
+      <button data-format="link" title="링크" aria-label="링크">↗</button>
+      <button id="insert-image" title="이미지" aria-label="이미지"><svg viewBox="0 0 20 20"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="m3 14 4-4 3 3 3-5 4 6"/><circle cx="7" cy="7" r="1"/></svg></button>
+    </div>
+    <div class="toolbar-end"><button id="toggle-lines" class="quiet-button" title="줄 번호 표시" aria-label="줄 번호 표시">01</button><button id="layout-button" class="quiet-button" title="화면 구성 변경" aria-label="화면 구성 변경"><svg viewBox="0 0 20 20"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="M10 4v12"/></svg></button></div>
+    <div id="layout-menu" class="popover" role="menu" hidden><button data-layout="split" role="menuitem">나란히 보기</button><button data-layout="editor" role="menuitem">편집창만 보기</button><button data-layout="preview" role="menuitem">미리보기만 보기</button></div>
+  </header>
+  <main class="workspace">
+    <section id="editor-pane" class="pane" aria-label="마크다운 편집창">
+      <div class="pane-header"><div class="pane-label"><span class="pane-dot"></span>편집창<span class="pane-caption">MARKDOWN</span></div><div class="appearance">
+        <label class="font-label"><span class="sr-only">편집창 글꼴</span><select id="editor-font" aria-label="편집창 글꼴"></select></label>
+        <label class="size-label"><span class="sr-only">편집창 글꼴 크기</span><input id="editor-size" aria-label="편집창 글꼴 크기" type="range" min="10" max="20" step="1" value="13"><output id="editor-size-value">13 pt</output></label>
+        <label class="check-label"><input id="editor-dark" type="checkbox"><span>다크 모드</span></label>
+      </div></div>
+      <div id="editor"></div>
+    </section>
+    <div id="splitter" role="separator" tabindex="0" aria-label="편집창 너비" aria-orientation="vertical" aria-valuemin="25" aria-valuemax="75" aria-valuenow="50"></div>
+    <section id="preview-pane" class="pane" aria-label="마크다운 미리보기">
+      <div class="pane-header"><div class="pane-label"><span class="pane-dot preview-dot"></span>미리보기<span class="pane-caption">PREVIEW</span></div><div class="appearance">
+        <label class="check-label inherit"><input id="preview-inherit" type="checkbox"><span>편집창과 같음</span></label>
+        <label class="font-label"><span class="sr-only">미리보기 글꼴</span><select id="preview-font" aria-label="미리보기 글꼴"></select></label>
+        <label class="size-label"><span class="sr-only">미리보기 글꼴 크기</span><input id="preview-size" aria-label="미리보기 글꼴 크기" type="range" min="10" max="20" step="1" value="14"><output id="preview-size-value">14 pt</output></label>
+        <label class="check-label"><input id="preview-dark" type="checkbox"><span>다크 모드</span></label>
+      </div></div>
+      <div id="preview-scroll" tabindex="0" aria-label="렌더링된 문서"><article id="preview" class="markdown-body"></article></div>
+    </section>
+  </main>
+  <footer class="statusbar"><span id="file-name">제목 없음.md</span><span id="dirty-status"></span><span class="status-spacer"></span><span id="cursor-status">줄 1, 열 1</span><span class="status-divider"></span><span id="word-count">0 단어</span><span class="status-divider"></span><span>UTF-8</span><span class="sync-status" title="문단 위치를 기준으로 스크롤이 동기화됩니다"><span></span>스크롤 동기화</span></footer>
+</div>
+<div id="selection-menu" role="toolbar" aria-label="선택 영역 서식" hidden><button data-format="bold" aria-label="선택 영역 굵게"><b>B</b></button><button data-format="italic" aria-label="선택 영역 기울임"><i>I</i></button><button data-format="code" aria-label="선택 영역 코드">&lt;&gt;</button><button data-format="link" aria-label="선택 영역 링크">↗</button></div>
+<div id="toast" role="status" hidden></div>
+<script defer src="./app.js"></script>
+</body>
+</html>

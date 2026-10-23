@@ -1,0 +1,7 @@
+:root{color-scheme:light dark}
+body.preview-page{display:block;height:auto;min-height:100vh;overflow:auto;background:var(--surface);--preview-font:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;--preview-size:14pt}
+.preview-page main{width:100%;min-height:100vh}
+.preview-page .markdown-body{width:100%;padding:32px 40px 64px;min-height:100vh}
+.preview-empty{font:14px -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;color:var(--muted);padding:20px 0}
+@media(max-width:560px){.preview-page .markdown-body{padding:22px 24px 44px}}
+@media print{body.preview-page{background:white;color:#111}.preview-page .markdown-body{padding:0;min-height:0}}

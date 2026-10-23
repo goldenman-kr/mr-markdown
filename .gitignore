@@ -1,0 +1,35 @@
+node_modules/
+.build/
+build/
+dist/
+.DS_Store
+playwright-report/
+test-results/
+
+# Local agent state and machine settings
+.omx/
+.codex/
+.agents/
+.env
+.env.*
+!.env.example
+*.local.env
+
+# Credentials and signing material
+.ssh/
+.aws/
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.provisionprofile
+*.keychain*
+
+# Editor and generated files
+.idea/
+.vscode/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+*.log

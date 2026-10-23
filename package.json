@@ -1,0 +1,48 @@
+{
+  "name": "md-editor",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local-first native macOS Markdown editor",
+  "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "build": "npm run build:web && node scripts/third-party-notices.mjs && bash scripts/build-app.sh",
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "tsc --noEmit",
+    "verify": "npm run check && npm test && npm run build:web && npm run test:e2e",
+    "package": "bash scripts/package-app.sh"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/search": "^6.7.2",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
+    "@lezer/highlight": "^1.2.5",
+    "dompurify": "^3.4.17",
+    "highlight.js": "^11.12.0",
+    "katex": "^0.19.0",
+    "markdown-it": "^15.0.3",
+    "markdown-it-attrs": "^5.0.1",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-deflist": "^4.0.0",
+    "markdown-it-emoji": "^3.1.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-sub": "^2.0.0",
+    "markdown-it-sup": "^2.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "mermaid": "^12.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/katex": "^0.16.8",
+    "@types/markdown-it": "^14.2.0",
+    "@types/markdown-it-footnote": "^3.0.4",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  }
+}
