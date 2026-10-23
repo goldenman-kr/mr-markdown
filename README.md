@@ -2,8 +2,6 @@
 
 macOS에서 로컬 Markdown 문서를 작성하는 편집기입니다. 원문을 보존하는 편집창과 읽기 전용 미리보기를 나란히 표시합니다.
 
-1.1.0부터 앱 이름이 **MD-Editor → Mr. Markdown**으로 변경되었습니다. 홈페이지 `https://mdeditor.app.kryp.xyz`, URL 스킴 `mdeditor://`, 앱 식별자 `xyz.kryp.mdeditor`와 기존 설정·즐겨찾기는 유지합니다.
-
 ## 다운로드
 
 [**Mr. Markdown v1.1.0 설치용 DMG 다운로드**](https://github.com/goldenman-kr/mr-markdown/releases/download/v1.1.0/Mr-Markdown-1.1.0-arm64.dmg)
@@ -76,7 +74,7 @@ npm run package
 
 `scripts/sign-app.sh`는 `MD_SIGN_ACCOUNT`로 지정한 계정의 유효한 **Apple Development** 인증서만 선택합니다. 로컬 `scripts/signing.local.env`에 `MD_SIGN_ACCOUNT='개발자 계정 이메일'`을 설정하거나 환경 변수로 전달하세요. 이 파일은 Git에서 제외됩니다. 선택적으로 `MD_SIGN_IDENTITY`를 함께 지정할 수 있으며 같은 계정인지 검증합니다. 계정을 지정하지 않거나 유효한 인증서가 없으면 로컬 실행용 ad-hoc 서명을 적용합니다. 키체인·인증서·개인키는 저장소에 포함하지 않습니다.
 
-이 개발용 서명은 App Store 배포나 공증을 의미하지 않습니다. 앱 식별자는 `xyz.kryp.mdeditor`, 홈페이지 주소는 `https://mdeditor.app.kryp.xyz`, URL 스킴은 `mdeditor://`입니다. 도메인의 DNS·웹사이트 호스팅은 이 로컬 앱 빌드에서 변경하지 않았습니다.
+이 개발용 서명은 App Store 배포나 공증을 의미하지 않습니다.
 
 ## 검증
 
