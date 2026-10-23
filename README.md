@@ -4,6 +4,14 @@ macOS에서 로컬 Markdown 문서를 작성하는 편집기입니다. 원문을
 
 1.1.0부터 앱 이름이 **MD-Editor → Mr. Markdown**으로 변경되었습니다. 홈페이지 `https://mdeditor.app.kryp.xyz`, URL 스킴 `mdeditor://`, 앱 식별자 `xyz.kryp.mdeditor`와 기존 설정·즐겨찾기는 유지합니다.
 
+## 다운로드
+
+[**Mr. Markdown v1.1.0 설치용 DMG 다운로드**](https://github.com/goldenman-kr/mr-markdown/releases/download/v1.1.0/Mr-Markdown-1.1.0-arm64.dmg)
+
+macOS 14 이상 · Apple Silicon(M1 이상). DMG를 열고 **Mr. Markdown**을 **Applications** 폴더로 옮기세요. Intel Mac용 빌드는 제공하지 않습니다. Apple Development 서명이 적용된 개인 개발용 빌드이며 Apple 공증은 받지 않았습니다.
+
+[릴리스 정보 및 파일 검증값](https://github.com/goldenman-kr/mr-markdown/releases/tag/v1.1.0)
+
 ## 실행
 
 `dist/Mr. Markdown-1.1.0-arm64.dmg`를 열고 앱을 응용 프로그램 폴더로 옮기거나, `dist/Mr. Markdown.app`을 직접 더블 클릭하세요. macOS 14 이상에서 실행합니다. 현재 빌드는 이 Mac의 Apple Silicon 아키텍처용입니다.
